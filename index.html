@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CleanDo - Professional Upholstery & Salon Cleaning</title>
+    <title>CleanDo - Professional Cleaning Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2B59C3;
@@ -14,6 +14,10 @@
             --light: #F9F9F9;
             --dark: #333333;
             --gray: #777777;
+            --light-blue: #E8F0FE;
+            --border-radius: 12px;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
         
         * {
@@ -23,14 +27,14 @@
         }
         
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            background-color: #fff;
         }
         
         h1, h2, h3, h4, h5 {
-            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             margin-bottom: 1rem;
         }
@@ -61,13 +65,27 @@
         
         .logo {
             font-size: 28px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--primary);
             text-decoration: none;
+            display: flex;
+            align-items: center;
         }
         
         .logo span {
             color: var(--secondary);
+        }
+        
+        .logo-icon {
+            background: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
         }
         
         .nav-links {
@@ -83,7 +101,8 @@
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: var(--transition);
+            font-size: 16px;
         }
         
         .nav-links a:hover {
@@ -91,22 +110,28 @@
         }
         
         .btn {
-            display: inline-block;
-            padding: 12px 30px;
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 32px;
             background-color: var(--primary);
             color: white;
-            border-radius: 30px;
+            border-radius: var(--border-radius);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn i {
+            margin-right: 8px;
         }
         
         .btn:hover {
             background-color: #1e45a1;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
         
         .btn-secondary {
@@ -117,25 +142,102 @@
             background-color: #4ca897;
         }
         
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
         /* Hero Section */
         .hero {
-            padding: 150px 0 100px;
-            background: linear-gradient(rgba(43, 89, 195, 0.8), rgba(94, 187, 170, 0.8)), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, var(--light-blue) 0%, rgba(255,255,255,1) 100%);
+            position: relative;
+            overflow: hidden;
         }
         
-        .hero h1 {
+        .hero-content {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+        
+        .hero-text h1 {
             font-size: 3.5rem;
+            line-height: 1.2;
             margin-bottom: 20px;
+            color: var(--dark);
         }
         
-        .hero p {
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+        
+        .hero-text p {
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            color: var(--gray);
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .hero-stats {
+            display: flex;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+            max-width: 500px;
+        }
+        
+        .stat {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-right: 1px solid #eee;
+        }
+        
+        .stat:last-child {
+            border-right: none;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
         }
         
         /* Services Section */
@@ -151,7 +253,7 @@
         
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary);
+            color: var(--dark);
             position: relative;
             display: inline-block;
             padding-bottom: 15px;
@@ -164,8 +266,16 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background-color: var(--secondary);
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
         }
         
         .services-grid {
@@ -176,29 +286,59 @@
         
         .service-card {
             background-color: white;
-            border-radius: 10px;
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            padding: 30px;
+            text-align: center;
+            border-bottom: 4px solid transparent;
         }
         
         .service-card:hover {
             transform: translateY(-10px);
+            border-bottom: 4px solid var(--primary);
         }
         
-        .service-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .service-content {
-            padding: 25px;
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 28px;
         }
         
         .service-content h3 {
-            color: var(--primary);
+            color: var(--dark);
             font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .service-link i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+        
+        .service-link:hover i {
+            transform: translateX(5px);
         }
         
         /* About Section */
@@ -214,9 +354,15 @@
         }
         
         .about-text h2 {
-            color: var(--primary);
+            color: var(--dark);
             font-size: 2.5rem;
             margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 30px;
+            font-size: 1.1rem;
         }
         
         .about-features {
@@ -229,16 +375,23 @@
             margin-bottom: 15px;
         }
         
-        .feature i {
-            color: var(--secondary);
-            font-size: 20px;
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--light-blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-right: 15px;
+            color: var(--primary);
         }
         
         .about-image {
-            border-radius: 10px;
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
+            position: relative;
         }
         
         .about-image img {
@@ -250,7 +403,7 @@
         /* Testimonials */
         .testimonials {
             padding: 100px 0;
-            background-color: var(--light);
+            background: linear-gradient(135deg, var(--light-blue) 0%, rgba(255,255,255,1) 100%);
             text-align: center;
         }
         
@@ -264,19 +417,38 @@
         .testimonial-card {
             background-color: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: left;
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
         }
         
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
+            color: var(--gray);
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .testimonial-text::before {
+            content: """;
+            font-size: 60px;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            left: -10px;
+            top: -20px;
+            font-family: sans-serif;
         }
         
         .testimonial-author {
             display: flex;
             align-items: center;
-            justify-content: center;
         }
         
         .author-img {
@@ -285,6 +457,7 @@
             border-radius: 50%;
             overflow: hidden;
             margin-right: 15px;
+            border: 3px solid var(--light-blue);
         }
         
         .author-img img {
@@ -306,11 +479,10 @@
         /* CTA Section */
         .cta {
             padding: 100px 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             text-align: center;
+            border-radius: 0;
         }
         
         .cta h2 {
@@ -322,6 +494,18 @@
             max-width: 700px;
             margin: 0 auto 40px;
             font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .cta .btn:hover {
+            background: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
         /* Contact Section */
@@ -336,7 +520,7 @@
         }
         
         .contact-info h2 {
-            color: var(--primary);
+            color: var(--dark);
             margin-bottom: 30px;
         }
         
@@ -348,22 +532,49 @@
             display: flex;
             align-items: center;
             margin-bottom: 15px;
+            color: var(--gray);
         }
         
         .contact-details i {
             color: var(--primary);
             margin-right: 15px;
             font-size: 20px;
+            width: 24px;
+        }
+        
+        .contact-form {
+            background: var(--light);
+            padding: 30px;
+            border-radius: var(--border-radius);
+        }
+        
+        .contact-form h2 {
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
         }
         
         .contact-form input,
-        .contact-form textarea {
+        .contact-form textarea,
+        .contact-form select {
             width: 100%;
             padding: 15px;
-            margin-bottom: 20px;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
+            border-radius: var(--border-radius);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(43, 89, 195, 0.1);
         }
         
         .contact-form textarea {
@@ -386,9 +597,22 @@
         }
         
         .footer-column h3 {
-            color: var(--secondary);
+            color: white;
             margin-bottom: 20px;
             font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 2px;
         }
         
         .footer-column p, 
@@ -397,7 +621,7 @@
             margin-bottom: 10px;
             display: block;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
         
         .footer-column a:hover {
@@ -418,12 +642,13 @@
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.1);
             margin-right: 10px;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
         
         .social-links a:hover {
             background-color: var(--secondary);
             color: white;
+            transform: translateY(-3px);
         }
         
         .copyright {
@@ -436,6 +661,24 @@
         
         /* Responsive Design */
         @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero-text p {
+                max-width: 100%;
+            }
+            
             .about-content,
             .contact-grid {
                 grid-template-columns: 1fr;
@@ -469,31 +712,59 @@
                 padding: 180px 0 80px;
             }
             
-            .hero h1 {
+            .hero-text h1 {
                 font-size: 2.2rem;
             }
             
-            .hero p {
+            .hero-text p {
                 font-size: 1rem;
             }
             
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+            }
+            
+            .stat {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+                padding: 15px;
+            }
+            
+            .stat:last-child {
+                border-bottom: none;
+            }
         }
         
         @media (max-width: 480px) {
-            .hero h1 {
+            .hero-text h1 {
                 font-size: 1.8rem;
             }
             
             .btn {
-                padding: 10px 20px;
+                padding: 12px 25px;
             }
             
             .service-card,
             .testimonial-card {
                 padding: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -503,14 +774,19 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">Clean<span>Do</span></a>
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    Clean<span>Do</span>
+                </a>
                 <ul class="nav-links">
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <a href="#contact" class="btn">Get a Quote</a>
+                <a href="#contact" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
             </nav>
         </div>
     </header>
@@ -518,9 +794,33 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Professional Upholstery & Salon Cleaning Services</h1>
-            <p>We bring new life to your furniture and salons with our expert cleaning services in Casablanca, Morocco. Eco-friendly solutions and guaranteed satisfaction.</p>
-            <a href="#contact" class="btn">Book Now</a>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Professional <span>Cleaning</span> Services For Your Home</h1>
+                    <p>We provide top-quality cleaning services for salons and upholstery in Casablanca, Morocco. Our expert team uses eco-friendly products to give your space a fresh look.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn"><i class="fas fa-phone"></i> Get a Quote</a>
+                        <a href="#services" class="btn btn-outline"><i class="fas fa-info-circle"></i> Our Services</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Satisfaction Rate</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Cleaning Experts</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1581546104492-f5c5f39d64a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Professional Cleaning Service">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -529,34 +829,37 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
+                <p>We offer a wide range of professional cleaning services to meet your needs</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
                     <div class="service-content">
                         <h3>Sofa Cleaning</h3>
-                        <p>Deep cleaning for all types of sofas using specialized equipment and eco-friendly products to remove stains and odors.</p>
+                        <p>Deep cleaning for all types of sofas using specialized equipment and eco-friendly products.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-rug"></i>
+                    </div>
                     <div class="service-content">
                         <h3>Carpet Cleaning</h3>
-                        <p>Professional carpet cleaning that removes deep-seated dirt, allergens, and stains, leaving your carpets fresh and revitalized.</p>
+                        <p>Professional carpet cleaning that removes deep-seated dirt, allergens, and stains.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1595428774223-ef52624120d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="service-icon">
+                        <i class="fas fa-chair"></i>
+                    </div>
                     <div class="service-content">
                         <h3>Chair Cleaning</h3>
-                        <p>Thorough cleaning for office chairs, dining chairs, and other upholstered chairs to restore their original beauty.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Salon Deep Cleaning</h3>
-                        <p>Comprehensive cleaning service for entire salons, ensuring every corner is spotless and hygienic.</p>
+                        <p>Thorough cleaning for office chairs, dining chairs, and other upholstered chairs.</p>
+                        <a href="#" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -569,33 +872,38 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>Why Choose CleanDo?</h2>
-                    <p>With years of experience in the cleaning industry, CleanDo has established itself as a leader in upholstery and salon cleaning services in Casablanca. We combine advanced cleaning technology with eco-friendly products to deliver exceptional results.</p>
+                    <p>With years of experience in the cleaning industry, CleanDo has established itself as a leader in upholstery and salon cleaning services in Casablanca.</p>
+                    <p>We combine advanced cleaning technology with eco-friendly products to deliver exceptional results that will make your space look brand new.</p>
                     <div class="about-features">
                         <div class="feature">
-                            <i class="fas fa-check-circle"></i>
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
                             <p>Certified and trained cleaning professionals</p>
                         </div>
                         <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <p>Eco-friendly cleaning products safe for families and pets</p>
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p>Eco-friendly cleaning products safe for families</p>
                         </div>
                         <div class="feature">
-                            <i class="fas fa-check-circle"></i>
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
                             <p>Advanced equipment for deep cleaning</p>
                         </div>
                         <div class="feature">
-                            <i class="fas fa-check-circle"></i>
+                            <div class="feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
                             <p>Flexible scheduling to meet your needs</p>
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <p>Affordable pricing with no hidden costs</p>
-                        </div>
                     </div>
-                    <a href="#contact" class="btn">Contact Us</a>
+                    <a href="#contact" class="btn"><i class="fas fa-phone"></i> Contact Us</a>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CleanDo Team">
+                    <img src="https://images.unsplash.com/photo-1599636449394-86a99baa445d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="CleanDo Team">
                 </div>
             </div>
         </div>
@@ -606,6 +914,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>What Our Clients Say</h2>
+                <p>Read testimonials from our satisfied customers</p>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
@@ -659,7 +968,7 @@
         <div class="container">
             <h2>Ready to Transform Your Space?</h2>
             <p>Book our professional cleaning services today and experience the CleanDo difference. We guarantee satisfaction with every cleaning.</p>
-            <a href="#contact" class="btn">Get a Free Quote</a>
+            <a href="#contact" class="btn"><i class="fas fa-calendar"></i> Schedule a Cleaning</a>
         </div>
     </section>
 
@@ -676,25 +985,35 @@
                         <p><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 8:00 PM</p>
                     </div>
                     <div class="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212655.58005058964!2d-7.682803549999999!3d33.5724048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd4778aa113b%3A0xb06c1d84f310fd3!2sCasablanca%2C%20Morocco!5e0!3m2!1sen!2sus!4v1654568767890!5m2!1sen!2sus" width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212655.58005058964!2d-7.682803549999999!3d33.5724048!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd4778aa113b%3A0xb06c1d84f310fd3!2sCasablanca%2C%20Morocco!5e0!3m2!1sen!2sus!4v1654568767890!5m2!1sen!2sus" width="100%" height="300" style="border:0; border-radius: var(--border-radius);" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
                 <div class="contact-form">
                     <h2>Request a Quote</h2>
                     <form>
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="tel" placeholder="Your Phone">
-                        <select required>
-                            <option value="" disabled selected>Select Service</option>
-                            <option value="sofa">Sofa Cleaning</option>
-                            <option value="carpet">Carpet Cleaning</option>
-                            <option value="chair">Chair Cleaning</option>
-                            <option value="salon">Salon Deep Cleaning</option>
-                            <option value="other">Other Service</option>
-                        </select>
-                        <textarea placeholder="Message" required></textarea>
-                        <button type="submit" class="btn">Send Request</button>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Your Phone">
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="sofa">Sofa Cleaning</option>
+                                <option value="carpet">Carpet Cleaning</option>
+                                <option value="chair">Chair Cleaning</option>
+                                <option value="salon">Salon Deep Cleaning</option>
+                                <option value="other">Other Service</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Request</button>
                     </form>
                 </div>
             </div>
@@ -796,6 +1115,36 @@
                 }
             });
         }
+
+        // Add animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.service-card, .testimonial-card, .about-image, .hero-image');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if(position < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.service-card, .testimonial-card, .about-image, .hero-image');
+            
+            elements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            window.addEventListener('scroll', animateOnScroll);
+            // Trigger once on load
+            animateOnScroll();
+        });
     </script>
 </body>
 </html>
