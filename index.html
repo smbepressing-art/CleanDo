@@ -5,256 +5,730 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dentiste Entrepreneur - Casablanca</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* أساسيات التصميم */
+        :root {
+            --primary: #1a6bb3;
+            --primary-dark: #0d4d87;
+            --secondary: #38bdf8;
+            --accent: #ff6b6b;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        /* الترويسة */
+        /* Header */
         header {
-            background: linear-gradient(135deg, #1a6bb3 0%, #0d4d87 100%);
+            background: linear-gradient(135deg, rgba(26, 107, 179, 0.9) 0%, rgba(13, 77, 135, 0.9) 100%), url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
             color: white;
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
-            border-radius: 0 0 10px 10px;
-            margin-bottom: 40px;
+            position: relative;
+            margin-bottom: 60px;
         }
         
         header h1 {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease;
         }
         
         header p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease;
         }
         
-        /* الأقسام العامة */
-        section {
-            padding: 40px 20px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            animation: fadeIn 1.5s ease;
         }
         
-        h2 {
-            color: #1a6bb3;
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* About Section */
+        .about {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .about-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
             margin-bottom: 20px;
-            text-align: center;
-            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
         }
         
-        /* قسم الترحيب */
-        .welcome {
-            background-color: #f8f9fa;
-            text-align: center;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
         }
         
-        .welcome p {
-            max-width: 800px;
-            margin: 0 auto;
+        /* Features */
+        .features {
+            background: var(--light);
+            padding: 80px 0;
+            margin-bottom: 80px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            margin-bottom: 80px;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card::before {
+            content: '\201C';
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
             font-size: 1.1rem;
         }
         
-        /* قسم القصص */
-        .stories {
-            background-color: #fff;
-        }
-        
-        .testimonial {
-            background-color: #f8f9fa;
-            padding: 30px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border-left: 5px solid #1a6bb3;
-        }
-        
-        .testimonial p {
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-        
-        .testimonial .author {
-            font-weight: bold;
-            color: #1a6bb3;
-        }
-        
-        /* قسم الأسرار */
-        .secrets {
-            background: linear-gradient(135deg, #1a6bb3 0%, #0d4d87 100%);
+        /* Stats */
+        .stats {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
+            padding: 80px 0;
+            margin-bottom: 80px;
             text-align: center;
         }
         
-        .secrets h2 {
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
             color: white;
         }
         
-        .rating {
-            font-size: 1.5rem;
-            margin: 20px 0;
-            color: #FFD700;
-        }
-        
-        /* قسم الاتصال */
+        /* Contact */
         .contact {
-            background-color: #f8f9fa;
-            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
         }
         
         .contact-info {
+            background: var(--light);
+            padding: 40px;
+            border-radius: 10px;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 107, 179, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
             display: flex;
             flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
             justify-content: center;
-            gap: 30px;
             margin-top: 30px;
         }
         
-        .contact-item {
-            flex: 1;
-            min-width: 250px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
         }
         
-        .contact-item i {
-            font-size: 2rem;
-            color: #1a6bb3;
-            margin-bottom: 15px;
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
         }
         
-        /* التذييل */
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            margin-top: 40px;
-            color: #666;
-            border-top: 1px solid #ddd;
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* التجاوب مع الشاشات المختلفة */
-        @media (max-width: 768px) {
-            header {
-                padding: 50px 15px;
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            header h1 {
+                font-size: 2.8rem;
             }
             
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 80px 20px;
+            }
+            
+            header h1 {
+                font-size: 2.3rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .about, .footer-content {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
             header h1 {
                 font-size: 2rem;
             }
             
-            section {
-                padding: 30px 15px;
+            .btn {
+                padding: 12px 25px;
             }
             
-            h2 {
-                font-size: 1.7rem;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.7rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            .testimonial {
+            .feature-card, .testimonial-card, .contact-info, .contact-form {
                 padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Développez Votre Cabinet Dentaire™</h1>
-        <p>Devenez plus entrepreneurial et augmentez votre valeur nette</p>
+        <div class="container">
+            <h1>Développez Votre Cabinet Dentaire</h1>
+            <p>Devenez plus entrepreneurial et augmentez votre valeur nette à Casablanca</p>
+            <a href="#contact" class="btn">Commencer maintenant</a>
+        </div>
     </header>
-    
-    <section class="welcome">
-        <h2>Bienvenue chez Dental Entrepreneurs Casablanca</h2>
-        <p>Spécialement conçu pour les dentistes entrepreneurs qui souhaitent développer leur pratique dentaire et maximiser leur potentiel commercial. Rejoignez notre communauté de professionnels dentaires motivés à Casablanca.</p>
-        <p>Notre approche unique combine l'expertise dentaire avec les stratégies entrepreneuriales modernes pour vous aider à atteindre vos objectifs professionnels et financiers.</p>
+
+    <!-- About Section -->
+    <section class="about container">
+        <div class="about-content">
+            <h2 class="section-title">Bienvenue chez Dental Entrepreneurs Casablanca</h2>
+            <p>Spécialement conçu pour les dentistes entrepreneurs qui souhaitent développer leur pratique dentaire et maximiser leur potentiel commercial. Rejoignez notre communauté de professionnels dentaires motivés à Casablanca.</p>
+            <p>Notre approche unique combine l'expertise dentaire avec les stratégies entrepreneuriales modernes pour vous aider à atteindre vos objectifs professionnels et financiers.</p>
+            <p>Depuis 2010, nous accompagnons les dentistes marocains dans le développement de leur pratique avec des méthodes innovantes et éprouvées.</p>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c5b8c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1168&q=80" alt="Modern dental clinic in Casablanca">
+        </div>
     </section>
-    
-    <section class="stories">
-        <h2>Histoires Réelles de Dentistes Entrepreneurs</h2>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Nos Services Exclusive</h2>
+            <p class="text-center">Découvrez comment nous pouvons transformer votre pratique dentaire</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Croissance du Revenue</h3>
+                    <p>Stratégies éprouvées pour augmenter votre chiffre d'affaires de 30% à 50% en moins d'un an.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Gestion d'Équipe</h3>
+                    <p>Formation et techniques pour optimiser la performance de votre équipe et améliorer la satisfaction des patients.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing Digital</h3>
+                    <p>Stratégies de marketing sur mesure pour attirer plus de patients et développer votre marque personnelle.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Optimisation des Processus</h3>
+                    <p>Révolutionnez l'efficacité de votre cabinet avec nos méthodes d'optimisation des processus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials container">
+        <h2 class="section-title">Histoires Réelles de Dentistes Entrepreneurs</h2>
+        <p>Découvrez les témoignages de nos clients satisfaits à Casablanca et dans tout le Maroc</p>
         
-        <div class="testimonial">
-            <p>"Le chiffre d'affaires de mon cabinet était d'environ 840 000 DH et maintenant il dépasse 1 million DH. Dental Entrepreneurs Casablanca m'a vraiment aidé à atteindre mes objectifs et à développer plusieurs pratiques, ce que je recherchais depuis longtemps."</p>
-            <div class="author">Dr. Ahmed Benani, Casablanca</div>
-        </div>
-        
-        <div class="testimonial">
-            <p>"Grâce aux stratégies entrepreneuriales apprises, j'ai pu moderniser mon cabinet et attirer une clientèle plus large. Mes revenus ont augmenté de 40% en seulement un an."</p>
-            <div class="author">Dr. Leila Mansouri, Casablanca</div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Le chiffre d'affaires de mon cabinet était d'environ 840 000 DH et maintenant il dépasse 1 million DH. Dental Entrepreneurs Casablanca m'a vraiment aidé à atteindre mes objectifs et à développer plusieurs pratiques."</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Dr. Ahmed Benani">
+                    </div>
+                    <div class="author-info">
+                        <h4>Dr. Ahmed Benani</h4>
+                        <p>Casablanca</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Grâce aux stratégies entrepreneuriales apprises, j'ai pu moderniser mon cabinet et attirer une clientèle plus large. Mes revenus ont augmenté de 40% en seulement un an."</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Dr. Leila Mansouri">
+                    </div>
+                    <div class="author-info">
+                        <h4>Dr. Leila Mansouri</h4>
+                        <p>Casablanca</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p class="testimonial-text">"La formation en management d'équipe a transformé mon cabinet. Mon personnel est plus motivé et les patients remarquent la différence. Merci pour votre accompagnement!"</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Dr. Karim Alami">
+                    </div>
+                    <div class="author-info">
+                        <h4>Dr. Karim Alami</h4>
+                        <p>Rabat</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-    
-    <section class="secrets">
-        <h2>Secrets du Succès</h2>
-        <div class="rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <h2 class="section-title">Notre Impact en Chiffres</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <p>Dentistes Satisfaits</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">42%</div>
+                    <p>Augmentation Moyenne de Revenue</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <p>Ans d'Expérience</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <p>Clients Satisfaits</p>
+                </div>
+            </div>
         </div>
-        <p>5 étoiles sur 5 - Dr. Karim Alami</p>
-        <p>Rejoignez nos prochains séminaires pour découvrir les stratégies qui transforment les cabinets dentaires en entreprises prospères.</p>
     </section>
-    
-    <section class="contact">
-        <h2>Contactez-Nous</h2>
+
+    <!-- Contact Section -->
+    <section class="contact container" id="contact">
+        <h2 class="section-title">Contactez-Nous</h2>
         <p>Prêt à transformer votre pratique dentaire? Contactez-nous dès aujourd'hui pour une consultation gratuite.</p>
         
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Adresse</h3>
-                <p>123 Avenue Hassan II, Casablanca, Maroc</p>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Nos Coordonnées</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Avenue Hassan II, Casablanca, Maroc</p>
+                <p><i class="fas fa-phone"></i> +212 5 22 123 456</p>
+                <p><i class="fas fa-envelope"></i> info@dentalentrepreneurs.ma</p>
+                <p><i class="fas fa-clock"></i> Lun-Ven: 9h-18h | Sam: 9h-13h</p>
+                
+                <div class="map" style="margin-top: 30px;">
+                    <img src="https://images.unsplash.com/photo-1587334274527-ba54f0b5a357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Casablanca map" style="width: 100%; border-radius: 8px;">
+                </div>
             </div>
             
-            <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <h3>Téléphone</h3>
-                <p>+212 5 22 123 456</p>
-            </div>
-            
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <h3>Email</h3>
-                <p>info@dentalentrepreneurs.ma</p>
+            <div class="contact-form">
+                <h3>Envoyez-nous un Message</h3>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Votre nom complet" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Votre adresse email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Votre numéro de téléphone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea class="form-control" placeholder="Votre message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Envoyer le message</button>
+                </form>
             </div>
         </div>
     </section>
-    
+
+    <!-- Footer -->
     <footer>
-        <p>© 2023 Dental Entrepreneurs Casablanca. Tous droits réservés.</p>
-        <p>Une communauté pour dentistes entrepreneurs à Casablanca, Maroc</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Dental Entrepreneurs</h2>
+                    <p>Pour les dentistes entrepreneuriaux à Casablanca et dans tout le Maroc.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Liens Rapides</h3>
+                    <ul>
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Témoignages</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Consultation</a></li>
+                        <li><a href="#">Formation</a></li>
+                        <li><a href="#">Coaching</a></li>
+                        <li><a href="#">Marketing Digital</a></li>
+                        <li><a href="#">Optimisation</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 Dental Entrepreneurs Casablanca. Tous droits réservés.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Simple animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.feature-card, .testimonial-card, .stat-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
 </body>
 </html>
