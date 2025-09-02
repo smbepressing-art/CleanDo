@@ -1,734 +1,593 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dentiste Entrepreneur - Casablanca</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1a6bb3;
-            --primary-dark: #0d4d87;
-            --secondary: #38bdf8;
-            --accent: #ff6b6b;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-color: #fff;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background: linear-gradient(135deg, rgba(26, 107, 179, 0.9) 0%, rgba(13, 77, 135, 0.9) 100%), url('https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-            position: relative;
-            margin-bottom: 60px;
-        }
-        
-        header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: fadeInDown 1s ease;
-        }
-        
-        header p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            animation: fadeInUp 1s ease;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-            animation: fadeIn 1.5s ease;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
-        }
-        
-        /* About Section */
-        .about {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-        
-        .about-content {
-            flex: 1;
-            min-width: 300px;
-            padding: 20px;
-        }
-        
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-        
-        .about-image:hover {
-            transform: scale(1.02);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-        }
-        
-        /* Features */
-        .features {
-            background: var(--light);
-            padding: 80px 0;
-            margin-bottom: 80px;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .feature-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        /* Testimonials */
-        .testimonials {
-            margin-bottom: 80px;
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .testimonial-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            position: relative;
-            transition: var(--transition);
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .testimonial-card::before {
-            content: '\201C';
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            color: var(--primary);
-            opacity: 0.2;
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            line-height: 1;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-        }
-        
-        .author-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .author-info h4 {
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
-        
-        /* Stats */
-        .stats {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 80px 0;
-            margin-bottom: 80px;
-            text-align: center;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-        }
-        
-        .stat-item {
-            padding: 20px;
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: white;
-        }
-        
-        /* Contact */
-        .contact {
-            margin-bottom: 80px;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-        
-        .contact-info {
-            background: var(--light);
-            padding: 40px;
-            border-radius: 10px;
-        }
-        
-        .contact-form {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            transition: var(--transition);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(26, 107, 179, 0.1);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 0 30px;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-logo {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .footer-links {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .footer-links h3 {
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 30px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            header h1 {
-                font-size: 2.8rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            header {
-                padding: 80px 20px;
-            }
-            
-            header h1 {
-                font-size: 2.3rem;
-            }
-            
-            header p {
-                font-size: 1.1rem;
-            }
-            
-            .about, .footer-content {
-                flex-direction: column;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            .btn {
-                padding: 12px 25px;
-            }
-            
-            .feature-card, .testimonial-card, .contact-info, .contact-form {
-                padding: 20px;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nadara Bio - الكولاجين النباتي الطبيعي 100%، يعزز البشرة والصحة من الداخل." />
+  <title>Nadara Bio | الكولاجين النباتي</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Style CSS -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+      direction: rtl;
+    }
+
+    .rtl { direction: rtl; text-align: right; }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .btn-primary { background: #e5005a; color: white; }
+    .btn-success { background: #4caf50; color: white; }
+    .btn-warning { background: #ff9800; color: white; }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
+    /* Header Banner */
+    .header-banner {
+      background: #e5005a;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .header-banner .promo {
+      display: inline-block;
+      background: #4caf50;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 20px;
+      background: white;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero img {
+      width: 50%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .hero-content {
+      flex: 1;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .hero h1 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      color: #000;
+    }
+
+    .hero h2 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 2.5rem;
+      color: #4caf50;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .hero ul {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .hero ul li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .hero ul li i {
+      margin-right: 10px;
+      color: #e5005a;
+    }
+
+    /* Media Logos */
+    .logos {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      padding: 30px 0;
+      background: #f5f5f5;
+      text-align: center;
+    }
+
+    .logos img {
+      height: 40px;
+      filter: grayscale(100%);
+    }
+
+    /* Science Section */
+    .science {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      background: #fff;
+    }
+
+    .science-img {
+      flex: 1;
+      min-width: 300px;
+      position: relative;
+    }
+
+    .science-img img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .science-text {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+      background: #e5005a;
+      color: white;
+      border-radius: 10px;
+      margin-left: 20px;
+    }
+
+    .science-text h2 {
+      font-family: 'Tajawal', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .science-text p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* Comparison Table */
+    .comparison {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .comparison table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .comparison th {
+      background: #4caf50;
+      color: white;
+      padding: 15px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .comparison td {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .comparison tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+
+    .comparison .check { color: #4caf50; font-size: 1.5rem; }
+    .comparison .cross { color: #e5005a; font-size: 1.5rem; }
+
+    /* Usage Methods */
+    .usage {
+      background: #e5005a;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .usage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin: 30px 0;
+    }
+
+    .usage-item {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .usage-item i {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 40px 20px;
+      background: #f9f9f9;
+      text-align: center;
+    }
+
+    .testimonial-slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px 0;
+      scroll-snap-type: x mandatory;
+    }
+
+    .testimonial-card {
+      flex: 0 0 300px;
+      background: #e5005a;
+      color: white;
+      border-radius: 10px;
+      padding: 20px;
+      scroll-snap-align: start;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .testimonial-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      border: 3px solid white;
+    }
+
+    .testimonial-card p {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-rating {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .testimonial-rating i {
+      color: #ffd700;
+    }
+
+    /* Dragons Den */
+    .dragons-den {
+      background: #000;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .dragons-den video {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      margin: 20px auto;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .dragons-den p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero img {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+      }
+      .hero-content {
+        padding: 20px;
+        text-align: center;
+      }
+      .science {
+        flex-direction: column;
+      }
+      .science-text {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+      .comparison table {
+        font-size: 0.9rem;
+      }
+      .testimonial-slider {
+        flex-direction: column;
+      }
+    }
+
+    /* Lazy Load Images */
+    img.lazy {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    img.lazy.loaded {
+      opacity: 1;
+    }
+  </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <h1>Développez Votre Cabinet Dentaire</h1>
-            <p>Devenez plus entrepreneurial et augmentez votre valeur nette à Casablanca</p>
-            <a href="#contact" class="btn">Commencer maintenant</a>
-        </div>
-    </header>
+<body class="rtl">
 
-    <!-- About Section -->
-    <section class="about container">
-        <div class="about-content">
-            <h2 class="section-title">Bienvenue chez Dental Entrepreneurs Casablanca</h2>
-            <p>Spécialement conçu pour les dentistes entrepreneurs qui souhaitent développer leur pratique dentaire et maximiser leur potentiel commercial. Rejoignez notre communauté de professionnels dentaires motivés à Casablanca.</p>
-            <p>Notre approche unique combine l'expertise dentaire avec les stratégies entrepreneuriales modernes pour vous aider à atteindre vos objectifs professionnels et financiers.</p>
-            <p>Depuis 2010, nous accompagnons les dentistes marocains dans le développement de leur pratique avec des méthodes innovantes et éprouvées.</p>
-        </div>
-        <div class="about-image">
-            <img src="https://images.unsplash.com/photo-1629909613654-28e377c5b8c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1168&q=80" alt="Modern dental clinic in Casablanca">
-        </div>
-    </section>
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <div class="promo">احصل على خصم 49% الآن</div>
+    <span>العرض لفترة محدودة فقط</span>
+  </div>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Nos Services Exclusive</h2>
-            <p class="text-center">Découvrez comment nous pouvons transformer votre pratique dentaire</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Croissance du Revenue</h3>
-                    <p>Stratégies éprouvées pour augmenter votre chiffre d'affaires de 30% à 50% en moins d'un an.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Gestion d'Équipe</h3>
-                    <p>Formation et techniques pour optimiser la performance de votre équipe et améliorer la satisfaction des patients.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3>Marketing Digital</h3>
-                    <p>Stratégies de marketing sur mesure pour attirer plus de patients et développer votre marque personnelle.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Optimisation des Processus</h3>
-                    <p>Révolutionnez l'efficacité de votre cabinet avec nos méthodes d'optimisation des processus.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="hero animate-fade-in">
+    <img src="https://images.unsplash.com/photo-1541961520-169657190485?w=600&q=80" alt="امرأة تستخدم كولاجين نادارا" class="lazy" onload="this.classList.add('loaded')">
+    <div class="hero-content">
+      <h1>الكولاجين النباتي</h1>
+      <h2>Nadara Bio</h2>
+      <p>مثبت سريرياً، من طرف خبراء الصحة.. لزيادة إنتاج الكولاجين وحمض الهيالورونيك في الجسم</p>
+      <ul>
+        <li><i class="fas fa-smile"></i> تقليل الخطوط الدقيقة و التجاعيد في 30 يوماً*</li>
+        <li><i class="fas fa-sync-alt"></i> تحسين ترطيب البشرة وزيادة نضارتها</li>
+        <li><i class="fas fa-vial"></i> أكثر من 178% من الاحتياج اليومي لفيتامين C</li>
+      </ul>
+      <a href="#buy" class="btn btn-primary">احصل على خصم 49% الآن</a>
+    </div>
+  </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials container">
-        <h2 class="section-title">Histoires Réelles de Dentistes Entrepreneurs</h2>
-        <p>Découvrez les témoignages de nos clients satisfaits à Casablanca et dans tout le Maroc</p>
-        
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Le chiffre d'affaires de mon cabinet était d'environ 840 000 DH et maintenant il dépasse 1 million DH. Dental Entrepreneurs Casablanca m'a vraiment aidé à atteindre mes objectifs et à développer plusieurs pratiques."</p>
-                <div class="testimonial-author">
-                    <div class="author-image">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Dr. Ahmed Benani">
-                    </div>
-                    <div class="author-info">
-                        <h4>Dr. Ahmed Benani</h4>
-                        <p>Casablanca</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Grâce aux stratégies entrepreneuriales apprises, j'ai pu moderniser mon cabinet et attirer une clientèle plus large. Mes revenus ont augmenté de 40% en seulement un an."</p>
-                <div class="testimonial-author">
-                    <div class="author-image">
-                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Dr. Leila Mansouri">
-                    </div>
-                    <div class="author-info">
-                        <h4>Dr. Leila Mansouri</h4>
-                        <p>Casablanca</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <p class="testimonial-text">"La formation en management d'équipe a transformé mon cabinet. Mon personnel est plus motivé et les patients remarquent la différence. Merci pour votre accompagnement!"</p>
-                <div class="testimonial-author">
-                    <div class="author-image">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Dr. Karim Alami">
-                    </div>
-                    <div class="author-info">
-                        <h4>Dr. Karim Alami</h4>
-                        <p>Rabat</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Media Logos -->
+  <div class="logos">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Forbes_logo.svg/200px-Forbes_logo.svg.png" alt="Forbes">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/BBC_Dragons%27_Den_logo.svg/200px-BBC_Dragons%27_Den_logo.svg.png" alt="Dragons' Den">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Women%27s_Health_logo.svg/200px-Women%27s_Health_logo.svg.png" alt="Women's Health">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/The_Times_logo.svg/200px-The_Times_logo.svg.png" alt="The Times">
+  </div>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <h2 class="section-title">Notre Impact en Chiffres</h2>
-            
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">150+</div>
-                    <p>Dentistes Satisfaits</p>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-number">42%</div>
-                    <p>Augmentation Moyenne de Revenue</p>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-number">5</div>
-                    <p>Ans d'Expérience</p>
-                </div>
-                
-                <div class="stat-item">
-                    <div class="stat-number">98%</div>
-                    <p>Clients Satisfaits</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Science Section -->
+  <section class="science">
+    <div class="science-img">
+      <img src="https://images.unsplash.com/photo-1584518817881-b6387f63d276?w=600&q=80" alt="مرأة تحمل زجاجة Nadara Bio" class="lazy">
+    </div>
+    <div class="science-text">
+      <h2>علميًا، Nadara Bio هو منتوج</h2>
+      <p>100٪ نباتي وطبيعي : خال من الإضافات الصناعية.</p>
+      <p>و المواد المعدلة في المختبرات، و المبيدات الكيماوية الضارة.</p>
+      <p>يعزز إنتاج الكولاجين : يحسن إنتاج جسمك للكولاجين الخاص به.</p>
+      <p>لتحسين تجديد البشرة و مرونتها، و كذا تعزيز نمو الشعر.</p>
+      <p>يحتوي على Astrion : أثبتت الدراسات العلمية فعالية هذه المادة.</p>
+      <p>في تحسين مظهر الخطوط الدقيقة و التجاعيد و ترطيب البشرة.</p>
+      <p>142 ملغ. من فيتامين سي، لكل حصة : (178٪ من الاستهلاك اليومي المرجعي)</p>
+      <p>ما يشكل عاملاً حاسماً في تخليق الكولاجين.</p>
+      <a href="#buy" class="btn btn-success">احصل على خصم 49% الآن</a>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section class="contact container" id="contact">
-        <h2 class="section-title">Contactez-Nous</h2>
-        <p>Prêt à transformer votre pratique dentaire? Contactez-nous dès aujourd'hui pour une consultation gratuite.</p>
-        
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Nos Coordonnées</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Avenue Hassan II, Casablanca, Maroc</p>
-                <p><i class="fas fa-phone"></i> +212 5 22 123 456</p>
-                <p><i class="fas fa-envelope"></i> info@dentalentrepreneurs.ma</p>
-                <p><i class="fas fa-clock"></i> Lun-Ven: 9h-18h | Sam: 9h-13h</p>
-                
-                <div class="map" style="margin-top: 30px;">
-                    <img src="https://images.unsplash.com/photo-1587334274527-ba54f0b5a357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Casablanca map" style="width: 100%; border-radius: 8px;">
-                </div>
-            </div>
-            
-            <div class="contact-form">
-                <h3>Envoyez-nous un Message</h3>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Votre nom complet" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Votre adresse email" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="tel" class="form-control" placeholder="Votre numéro de téléphone">
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea class="form-control" placeholder="Votre message" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn">Envoyer le message</button>
-                </form>
-            </div>
-        </div>
-    </section>
+  <!-- Comparison Table -->
+  <section class="comparison">
+    <h2>مقارنة مع منتجات أخرى Nadara Bio</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Garden of Life</th>
+          <th>VITAL PROTEINS</th>
+          <th>Nadara Bio</th>
+          <th>المميزات</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>كولاجين بقري و بحري</td>
+          <td>كولاجين مهدرج بقري</td>
+          <td>100% نباتي (البازلاء، القنب)</td>
+          <td style="background: #4caf50;">مصدر الكولاجين</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-check check"></i></td>
+          <td><i class="fas fa-check check"></i></td>
+          <td>جلابيسين، برولين، هيدروكسي برولين</td>
+          <td style="background: #4caf50;">الأحماض الأمينية</td>
+        </tr>
+        <tr>
+          <td>البيوتين، السيليكا</td>
+          <td><i class="fas fa-times cross"></i></td>
+          <td>الأوفيرا، سيليكا من الخيزران</td>
+          <td style="background: #4caf50;">مستخلصات نباتية</td>
+        </tr>
+        <tr>
+          <td>فيتامين سي، بيوتين، بروبيوتيك</td>
+          <td><i class="fas fa-times cross"></i></td>
+          <td>فيتامين سي، زنك، نحاس</td>
+          <td style="background: #4caf50;">الفيتامينات والمعادن</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-times cross"></i></td>
+          <td><i class="fas fa-times cross"></i></td>
+          <td>فانيليا، كاكاو (اختيارية)</td>
+          <td style="background: #4caf50;">النكهات الطبيعية</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-check check"></i></td>
+          <td><i class="fas fa-check check"></i></td>
+          <td>سهل الخلط في المشروبات</td>
+          <td style="background: #4caf50;">الاستخدام كمشروب</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-times cross"></i></td>
+          <td><i class="fas fa-times cross"></i></td>
+          <td>ماسك للجسم، للبشرة والشعر</td>
+          <td style="background: #4caf50;">الاستخدام الموضعي</td>
+        </tr>
+        <tr>
+          <td>12 غراما</td>
+          <td>20 غراما</td>
+          <td>7 غرامات</td>
+          <td style="background: #4caf50;">البروتين لكل حصة</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-times cross"></i></td>
+          <td><i class="fas fa-times cross"></i></td>
+          <td>أستريون®</td>
+          <td style="background: #4caf50;">مستخلصات نباتية (اضافية)</td>
+        </tr>
+        <tr>
+          <td>35 دولار لكل 280 جرام</td>
+          <td>43 دولار لكل 567 جرام</td>
+          <td>29 دولار لكل 300 جرام</td>
+          <td style="background: #4caf50;">السعر</td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="#buy" class="btn btn-primary">احصل على خصم 49% الآن</a>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>Dental Entrepreneurs</h2>
-                    <p>Pour les dentistes entrepreneuriaux à Casablanca et dans tout le Maroc.</p>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Liens Rapides</h3>
-                    <ul>
-                        <li><a href="#">Accueil</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">À propos</a></li>
-                        <li><a href="#">Témoignages</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#">Consultation</a></li>
-                        <li><a href="#">Formation</a></li>
-                        <li><a href="#">Coaching</a></li>
-                        <li><a href="#">Marketing Digital</a></li>
-                        <li><a href="#">Optimisation</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-            
-            <div class="copyright">
-                <p>© 2023 Dental Entrepreneurs Casablanca. Tous droits réservés.</p>
-            </div>
-        </div>
-    </footer>
+  <!-- Usage Methods -->
+  <section class="usage">
+    <h2>طرق استخدام سهلة ومتنوعة</h2>
+    <div class="usage-grid">
+      <div class="usage-item">
+        <i class="fas fa-mug-hot"></i>
+        <h3>عصير سموثي</h3>
+        <p>استعماله كمكون للوصفة أو إضافة</p>
+      </div>
+      <div class="usage-item">
+        <i class="fas fa-cocktail"></i>
+        <h3>تحلية</h3>
+        <p>خالطه مع الياغورت أو القشدة</p>
+      </div>
+      <div class="usage-item">
+        <i class="fas fa-glass-cheers"></i>
+        <h3>عصير</h3>
+        <p>خالطه مع الماء أو العصير</p>
+      </div>
+      <div class="usage-item">
+        <i class="fas fa-tint"></i>
+        <h3>قناع للوجه</h3>
+        <p>مزجه مع الماء أو مع الزيوت النباتية (الصبار، الجوز...)</p>
+      </div>
+    </div>
+    <a href="#buy" class="btn btn-success">احصل على خصم 49% الآن</a>
+  </section>
 
-    <script>
-        // Simple animation for elements when they come into view
-        document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.feature-card, .testimonial-card, .stat-item');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            animatedElements.forEach(element => {
-                element.style.opacity = 0;
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(element);
-            });
-        });
-    </script>
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>لماذا يشعر أكثر من 45.000 عميل بالرضا مع Nadara Bio</h2>
+    <p>نحن في تظاهرة يوو نفتخر برضا عملائنا الذين تجاوز عددهم 45.000 عميل، إليكم بعض الشهادات الحية، التي تجعلهم يفضلون منتجنا على المنتجات الأخرى</p>
+    <div class="testimonial-slider">
+      <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="مستخدمة 1">
+        <p>كنت متوقعة في البداية بشأن فعالية الكولاجين النباتي، لكن بعد تجربته، أنا سعيدة جداً بأنني أشعر بتحسن كبير في بشرتي. بشرتي أصبحت أكثر نضارة وإشراقاً وأنا أشعر أنني أبدو وكأنني أصغر سنًا.</p>
+        <div class="testimonial-rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="مستخدم 2">
+        <p>هذا الكولاجين النباتي مثالي! استخدمته يومياً في ناقص الغداء وألاحظ أن بشرتي أصبحت أكثر شباباً وحيوية. كما أن تغليفه كريمي لهجة بسيط، تراه مفيداً جداً ويتقبله الجهاز الهضمي بسهولة.</p>
+        <div class="testimonial-rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="مستخدمة 3">
+        <p>بدأت ألاحظ تغيرات في بشرتي وشعرتي بعد استخدام الكولاجين النباتي. كريمي للبشرة وانتعشت. شعرت بتحسن كبير في مرونة البشرة ونضارتها. صعب أن أجد منتجًا يفعل هذا التأثير!</p>
+        <div class="testimonial-rating">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+    <a href="#buy" class="btn btn-primary">احصل على خصم 49% الآن</a>
+  </section>
+
+  <!-- Dragons Den -->
+  <section class="dragons-den">
+    <h2>نجاح Nadara Bio عبر برنامج DRAGONS’ DEN</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Dragons' Den - Nadara Bio" frameborder="0" allowfullscreen></iframe>
+    <p>في سنة 2020، واجهت المؤسستين ندى وإكرام اختباراً أكبر عندما ظهرتا في برنامج "حرير التنين".</p>
+    <p>ترك عرضهما بصمة في التاريخ، حيث أحب جميع أعضاء لجنة التنين. BBC One على قناة فكرة العلامة التجارية والمنتجات وقيم الشركة. مما أدى إلى انطلاقه قوية لـ نضارة يوو، لتُصبح أسرع علامة تجارية لنباتات السوبر فود نمواً في المملكة المتحدة.</p>
+    <a href="#buy" class="btn btn-warning">احصل على خصم 49% الآن</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Nadara Bio. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Lazy load images
+    document.querySelectorAll('img.lazy').forEach(img => {
+      img.onload = () => img.classList.add('loaded');
+    });
+
+    // Smooth scroll for buttons
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = this.getAttribute('href');
+        if (target) {
+          document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
