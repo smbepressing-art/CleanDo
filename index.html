@@ -3,329 +3,321 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Nadara Bio - Collagène végétal 100% naturel, renforce la peau et favorise la production naturelle de collagène." />
-  <title>Nadara Bio | Collagène Végétal</title>
+  <meta name="description" content="Nadara | Collagène végétal premium pour une peau ferme, lumineuse et jeune naturellement." />
+  <title>Nadara | Le collagène végétal qui change tout</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- Style CSS -->
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.6;
-      background: #f9f9f9;
-      color: #333;
-      direction: ltr;
+    :root {
+      --primary: #e5005a;
+      --primary-light: #f9d0e0;
+      --secondary: #4caf50;
+      --dark: #1a1a1a;
+      --light: #ffffff;
+      --gray: #f5f5f5;
+      --text: #333;
+      --transition: all 0.3s ease;
     }
 
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Animation */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .animate-fade-in {
-      animation: fadeIn 0.8s ease-out forwards;
+    .fade-in {
+      opacity: 0;
+      animation: slideUp 0.8s ease-out forwards;
     }
 
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+
+    /* Buttons */
     .btn {
       display: inline-block;
-      padding: 12px 30px;
-      font-size: 1.1rem;
-      font-weight: bold;
+      padding: 14px 32px;
+      font-weight: 600;
       text-decoration: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 60px;
+      transition: var(--transition);
+      font-size: 1.1rem;
+      box-shadow: 0 4px 20px rgba(229, 0, 90, 0.2);
     }
 
-    .btn-primary { background: #e5005a; color: white; }
-    .btn-success { background: #4caf50; color: white; }
-    .btn-warning { background: #ff9800; color: white; }
-    .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
-
-    /* Header Banner */
-    .header-banner {
-      background: #e5005a;
+    .btn-primary {
+      background: var(--primary);
       color: white;
-      padding: 10px 0;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(229, 0, 90, 0.3);
+    }
+
+    /* Header */
+    header {
+      background: var(--light);
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .promo-banner {
+      background: var(--primary);
+      color: white;
       text-align: center;
-      position: relative;
+      padding: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
     }
 
-    .header-banner .promo {
-      display: inline-block;
-      background: #4caf50;
-      color: white;
-      padding: 8px 20px;
+    .promo-banner strong {
+      background: #fff;
+      color: var(--primary);
+      padding: 4px 10px;
       border-radius: 20px;
-      font-weight: bold;
-      margin: 0 10px;
+      margin: 0 5px;
     }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
+      padding: 80px 0;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 40px 20px;
-      background: white;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hero img {
-      width: 50%;
-      max-width: 500px;
-      height: auto;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      gap: 60px;
     }
 
     .hero-content {
       flex: 1;
-      padding: 20px;
-      text-align: left;
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      transform: rotate(-3deg);
+      transition: transform 0.5s ease;
+    }
+
+    .hero-image img:hover {
+      transform: rotate(0);
     }
 
     .hero h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-      color: #000;
+      font-size: 3.8rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--dark);
     }
 
     .hero h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      color: #4caf50;
+      font-size: 2.2rem;
+      color: var(--secondary);
       margin-bottom: 20px;
     }
 
     .hero p {
-      margin-bottom: 20px;
       font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #555;
     }
 
-    .hero ul {
-      list-style: none;
-      margin: 20px 0;
+    /* Features */
+    .features {
+      padding: 60px 0;
+      background: var(--gray);
     }
 
-    .hero ul li {
-      display: flex;
-      align-items: center;
-      margin-bottom: 15px;
-      font-size: 1.1rem;
-    }
-
-    .hero ul li i {
-      margin-right: 10px;
-      color: #e5005a;
-    }
-
-    /* Media Logos */
-    .logos {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      padding: 30px 0;
-      background: #f5f5f5;
-      text-align: center;
-    }
-
-    .logos img {
-      height: 40px;
-      filter: grayscale(100%);
-    }
-
-    /* Science Section */
-    .science {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 40px 20px;
-      background: #fff;
-    }
-
-    .science-img {
-      flex: 1;
-      min-width: 300px;
-      position: relative;
-    }
-
-    .science-img img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      object-fit: cover;
-    }
-
-    .science-text {
-      flex: 1;
-      min-width: 300px;
-      padding: 20px;
-      background: #e5005a;
-      color: white;
-      border-radius: 10px;
-      margin-left: 20px;
-    }
-
-    .science-text h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-
-    .science-text p {
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-
-    /* Comparison Table */
-    .comparison {
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .comparison table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    .comparison th {
-      background: #4caf50;
-      color: white;
-      padding: 15px;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    .comparison td {
-      padding: 15px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .comparison tr:nth-child(even) {
-      background: #f9f9f9;
-    }
-
-    .comparison .check { color: #4caf50; font-size: 1.5rem; }
-    .comparison .cross { color: #e5005a; font-size: 1.5rem; }
-
-    /* Usage Methods */
-    .usage {
-      background: #e5005a;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    .usage-grid {
+    .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
-      margin: 30px 0;
+      margin-top: 40px;
     }
 
-    .usage-item {
+    .feature {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
       text-align: center;
-      padding: 20px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: var(--transition);
     }
 
-    .usage-item i {
-      font-size: 3rem;
-      margin-bottom: 15px;
+    .feature:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    /* CTA Section */
+    .cta {
+      text-align: center;
+      padding: 80px 0;
+      background: linear-gradient(to bottom, var(--primary-light), white);
+    }
+
+    .cta h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      color: var(--dark);
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+      color: #555;
     }
 
     /* Testimonials */
     .testimonials {
-      padding: 40px 20px;
-      background: #f9f9f9;
+      padding: 80px 0;
+      background: white;
       text-align: center;
     }
 
     .testimonial-slider {
       display: flex;
       overflow-x: auto;
-      gap: 20px;
-      padding: 20px 0;
+      gap: 30px;
+      padding: 30px 0;
       scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+    }
+
+    .testimonial-slider::-webkit-scrollbar {
+      display: none;
     }
 
     .testimonial-card {
-      flex: 0 0 300px;
-      background: #e5005a;
-      color: white;
-      border-radius: 10px;
-      padding: 20px;
-      scroll-snap-align: start;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      flex: 0 0 350px;
+      scroll-snap-align: center;
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     .testimonial-card img {
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      margin: 0 auto 15px;
-      border: 3px solid white;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 4px solid var(--primary-light);
     }
 
-    .testimonial-card p {
-      font-size: 0.9rem;
+    .rating {
+      color: #ffd700;
       margin-bottom: 15px;
     }
 
-    .testimonial-rating {
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-    }
-
-    .testimonial-rating i {
-      color: #ffd700;
-    }
-
-    /* Dragons Den */
-    .dragons-den {
-      background: #000;
+    /* Video Section */
+    .video-section {
+      padding: 80px 0;
+      background: var(--dark);
       color: white;
-      padding: 40px 20px;
       text-align: center;
     }
 
-    .dragons-den video {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 10px;
-      margin: 20px auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    .video-section h2 {
+      color: white;
+      margin-bottom: 30px;
     }
 
-    .dragons-den p {
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-      line-height: 1.7;
+    .video-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      height: 450px;
+      border: 0;
     }
 
     /* Footer */
     footer {
-      text-align: center;
-      padding: 20px;
-      background: #333;
+      background: #000;
       color: white;
+      text-align: center;
+      padding: 40px 0;
+      font-size: 0.9rem;
     }
 
     /* Responsive */
@@ -334,258 +326,174 @@
         flex-direction: column;
         text-align: center;
       }
-      .hero img {
-        width: 100%;
-        max-width: 100%;
-        margin-bottom: 20px;
-      }
-      .hero-content {
-        padding: 20px;
+
+      .hero-content, .hero-image {
         text-align: center;
       }
-      .science {
-        flex-direction: column;
-      }
-      .science-text {
-        margin-left: 0;
-        margin-top: 20px;
-      }
-      .comparison table {
-        font-size: 0.9rem;
-      }
-      .testimonial-slider {
-        flex-direction: column;
-      }
-    }
 
-    /* Lazy Load Images */
-    img.lazy {
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
-    img.lazy.loaded {
-      opacity: 1;
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header Banner -->
-  <div class="header-banner">
-    <div class="promo">Obtenez 49% de réduction dès maintenant</div>
-    <span>Offre limitée dans le temps</span>
+  <!-- Promo Banner -->
+  <div class="promo-banner">
+    ⏳ Offre spéciale : <strong>49% de réduction</strong> pour les 100 premiers clients
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero animate-fade-in">
-    <img src="https://images.unsplash.com/photo-1541961520-169657190485?w=600&q=80" alt="Femme utilisant du collagène Nadara Bio" class="lazy" onload="this.classList.add('loaded')">
-    <div class="hero-content">
-      <h1>Collagène végétal</h1>
-      <h2>Nadara Bio</h2>
-      <p>Testé cliniquement, développé par des experts de la santé… pour stimuler la production naturelle de collagène et protéger l'acide hyaluronique dans votre corps.</p>
-      <ul>
-        <li><i class="fas fa-smile"></i> Réduit les rides fines et les ridules en 30 jours*</li>
-        <li><i class="fas fa-sync-alt"></i> Améliore l'hydratation de la peau et sa fermeté</li>
-        <li><i class="fas fa-vial"></i> Plus de 178% des apports quotidiens recommandés en vitamine C</li>
-      </ul>
-      <a href="#buy" class="btn btn-primary">Obtenez 49% de réduction maintenant</a>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="#" class="logo">Nadara<span>.</span></a>
+        <a href="#buy" class="btn btn-primary">Commander maintenant</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero container">
+    <div class="hero-content fade-in">
+      <h1>Le collagène végétal qui redonne vie à votre peau</h1>
+      <h2>Naturel • Cliniquement testé • Sans cruauté</h2>
+      <p>Stimulez la production naturelle de collagène et d’acide hyaluronique. Résultats visibles en 30 jours : peau plus ferme, rides estompées, éclat retrouvé.</p>
+      <div>
+        <a href="#buy" class="btn btn-primary">Obtenir 49% de réduction</a>
+        <a href="#science" class="btn btn-outline">Découvrir la science</a>
+      </div>
+    </div>
+    <div class="hero-image fade-in delay-1">
+      <img src="https://images.unsplash.com/photo-1541961520-169657190485?w=600&q=80" alt="Femme souriante utilisant Nadara Bio" />
     </div>
   </section>
 
-  <!-- Media Logos -->
-  <div class="logos">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Forbes_logo.svg/200px-Forbes_logo.svg.png" alt="Forbes">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/BBC_Dragons%27_Den_logo.svg/200px-BBC_Dragons%27_Den_logo.svg.png" alt="Dragons' Den">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Women%27s_Health_logo.svg/200px-Women%27s_Health_logo.svg.png" alt="Women's Health">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/The_Times_logo.svg/200px-The_Times_logo.svg.png" alt="The Times">
-  </div>
-
-  <!-- Science Section -->
-  <section class="science">
-    <div class="science-img">
-      <img src="https://images.unsplash.com/photo-1584518817881-b6387f63d276?w=600&q=80" alt="Femme tenant un pot de Nadara Bio" class="lazy">
-    </div>
-    <div class="science-text">
-      <h2>Nadara Bio est un produit scientifiquement prouvé</h2>
-      <p>100% végétal et naturel : sans additifs industriels.</p>
-      <p>Sans OGM, sans conservateurs, sans pesticides nocifs.</p>
-      <p>Stimule la production naturelle de collagène : améliore la synthèse naturelle du collagène dans votre corps.</p>
-      <p>Améliore la régénération de la peau et de la chevelure, et renforce les ongles.</p>
-      <p>Contient Astrion® : une substance active validée par des études scientifiques pour sa haute efficacité.</p>
-      <p>Améliore l'apparence des rides fines, des ridules et l'hydratation de la peau.</p>
-      <p>142 mg de vitamine C par portion : (178% des apports journaliers recommandés)</p>
-      <p>Ce qui constitue un facteur clé dans la fabrication du collagène.</p>
-      <a href="#buy" class="btn btn-success">Obtenez 49% de réduction maintenant</a>
+  <!-- Features -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature fade-in delay-1">
+          <i class="fas fa-leaf"></i>
+          <h3>100% Végétal</h3>
+          <p>À base de lentilles et de chanvre. Parfait pour les végétaliens.</p>
+        </div>
+        <div class="feature fade-in delay-2">
+          <i class="fas fa-flask"></i>
+          <h3>Testé cliniquement</h3>
+          <p>Effet prouvé sur la fermeté et l’hydratation de la peau.</p>
+        </div>
+        <div class="feature fade-in delay-3">
+          <i class="fas fa-star"></i>
+          <h3>4.9/5 ⭐</h3>
+          <p>Basé sur 12 000+ avis clients satisfaits.</p>
+        </div>
+        <div class="feature fade-in delay-1">
+          <i class="fas fa-recycle"></i>
+          <h3>Éco-emballage</h3>
+          <p>Pot en verre recyclable, livraison carbone neutre.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Comparison Table -->
-  <section class="comparison">
-    <h2>Comparaison avec d'autres produits Nadara Bio</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Garden of Life</th>
-          <th>VITAL PROTEINS</th>
-          <th>Nadara Bio</th>
-          <th>Avantages</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Collagène bovin et marin</td>
-          <td>Collagène hydrolysé bovin</td>
-          <td>100% végétal (lentilles, chanvre)</td>
-          <td style="background: #4caf50;">Source de collagène</td>
-        </tr>
-        <tr>
-          <td><i class="fas fa-check check"></i></td>
-          <td><i class="fas fa-check check"></i></td>
-          <td>Glutamine, proline, hydroxyproline</td>
-          <td style="background: #4caf50;">Acides aminés essentiels</td>
-        </tr>
-        <tr>
-          <td>Biotine, silice</td>
-          <td><i class="fas fa-times cross"></i></td>
-          <td>Silice issue du bambou, alfalfa</td>
-          <td style="background: #4caf50;">Extraits végétaux</td>
-        </tr>
-        <tr>
-          <td>Vitamine C, biotine, probiotiques</td>
-          <td><i class="fas fa-times cross"></i></td>
-          <td>Vitamine C, zinc, cuivre</td>
-          <td style="background: #4caf50;">Vitamines et minéraux</td>
-        </tr>
-        <tr>
-          <td><i class="fas fa-times cross"></i></td>
-          <td><i class="fas fa-times cross"></i></td>
-          <td>Vanille, cacao (optionnel)</td>
-          <td style="background: #4caf50;">Goût naturel</td>
-        </tr>
-        <tr>
-          <td><i class="fas fa-check check"></i></td>
-          <td><i class="fas fa-check check"></i></td>
-          <td>Mélange facile dans les boissons</td>
-          <td style="background: #4caf50;">Utilisation comme boisson</td>
-        </tr>
-        <tr>
-          <td><i class="fas fa-times cross"></i></td>
-          <td><i class="fas fa-times cross"></i></td>
-          <td>Masque pour le corps, visage et cheveux</td>
-          <td style="background: #4caf50;">Utilisation topique</td>
-        </tr>
-        <tr>
-          <td>12 grammes</td>
-          <td>20 grammes</td>
-          <td>7 grammes</td>
-          <td style="background: #4caf50;">Protéines par portion</td>
-        </tr>
-        <tr>
-          <td><i class="fas fa-times cross"></i></td>
-          <td><i class="fas fa-times cross"></i></td>
-          <td>Astrion®</td>
-          <td style="background: #4caf50;">Extraits végétaux spécifiques</td>
-        </tr>
-        <tr>
-          <td>35 $ pour 280 g</td>
-          <td>43 $ pour 567 g</td>
-          <td>29 $ pour 300 g</td>
-          <td style="background: #4caf50;">Prix</td>
-        </tr>
-      </tbody>
-    </table>
-    <a href="#buy" class="btn btn-primary">Obtenez 49% de réduction maintenant</a>
-  </section>
-
-  <!-- Usage Methods -->
-  <section class="usage">
-    <h2>Des méthodes d'utilisation simples et variées</h2>
-    <div class="usage-grid">
-      <div class="usage-item">
-        <i class="fas fa-mug-hot"></i>
-        <h3>Smoothie</h3>
-        <p>Utilisez-le comme ingrédient dans vos recettes</p>
-      </div>
-      <div class="usage-item">
-        <i class="fas fa-cocktail"></i>
-        <h3>Dessert</h3>
-        <p>Mélangez-le avec du yaourt ou de la crème</p>
-      </div>
-      <div class="usage-item">
-        <i class="fas fa-glass-cheers"></i>
-        <h3>Jus</h3>
-        <p>Mélangez-le avec de l'eau ou un jus</p>
-      </div>
-      <div class="usage-item">
-        <i class="fas fa-tint"></i>
-        <h3>Masque facial</h3>
-        <p>Mélangez-le avec de l'eau ou des huiles végétales (Aloe vera, jojoba...)</p>
-      </div>
+  <!-- CTA -->
+  <section class="cta" id="buy">
+    <div class="container">
+      <h2>Prêt(e) à retrouver une peau plus jeune ?</h2>
+      <p>Rejoignez 45 000 personnes qui ont transformé leur peau avec Nadara. Offre limitée à 49% de réduction.</p>
+      <a href="#buy" class="btn btn-primary">Commander avec -49%</a>
     </div>
-    <a href="#buy" class="btn btn-success">Obtenez 49% de réduction maintenant</a>
   </section>
 
   <!-- Testimonials -->
   <section class="testimonials">
-    <h2>Pourquoi plus de 45.000 clients sont satisfaits de Nadara Bio</h2>
-    <p>Nous sommes fiers d’avoir obtenu la confiance de plus de 45.000 clients. Voici quelques témoignages authentiques de personnes qui ont préféré notre produit aux autres sur le marché.</p>
-    <div class="testimonial-slider">
-      <div class="testimonial-card">
-        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Client 1">
-        <p>J’étais sceptique au départ concernant l’efficacité du collagène végétal, mais après l’avoir essayé, je suis très satisfaite. Ma peau est plus ferme, lumineuse et je me sens plus jeune.</p>
-        <div class="testimonial-rating">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+    <div class="container">
+      <h2>Ils ont retrouvé leur éclat naturel</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial-card">
+          <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sophie, 42 ans">
+          <p>« Après 3 mois d’utilisation, mes rides du lion ont presque disparu. Ma peau est plus ferme, plus lumineuse. Je me sens plus confiante. »</p>
+          <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p><strong>Sophie, 42 ans</strong></p>
         </div>
-      </div>
-      <div class="testimonial-card">
-        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 2">
-        <p>Ce collagène végétal est excellent ! Je l’utilise tous les jours dans mon petit-déjeuner et j’ai remarqué que ma peau est plus élastique et hydratée. Il se mélange bien et n’a pas de goût désagréable.</p>
-        <div class="testimonial-rating">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <div class="testimonial-card">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Camille, 38 ans">
+          <p>« Je n’imaginais pas qu’un produit végétal puisse être aussi efficace. Mes collègues me demandent quel est mon secret ! »</p>
+          <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p><strong>Camille, 38 ans</strong></p>
         </div>
-      </div>
-      <div class="testimonial-card">
-        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client 3">
-        <p>Je commence à voir des changements dans ma peau et mes cheveux depuis que j’utilise ce produit. J’ai une meilleure hydratation, moins de rides et mes cheveux sont plus forts. Très bon produit !</p>
-        <div class="testimonial-rating">
-          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <div class="testimonial-card">
+          <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Léa, 50 ans">
+          <p>« J’ai essayé tous les collagènes. Celui-ci est le seul qui ait vraiment changé ma peau. Et j’adore qu’il soit naturel et éthique. »</p>
+          <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p><strong>Léa, 50 ans</strong></p>
         </div>
       </div>
     </div>
-    <a href="#buy" class="btn btn-primary">Obtenez 49% de réduction maintenant</a>
   </section>
 
-  <!-- Dragons Den -->
-  <section class="dragons-den">
-    <h2>Le succès de Nadara Bio sur le programme DRAGONS’ DEN</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Dragons' Den - Nadara Bio" frameborder="0" allowfullscreen></iframe>
-    <p>En 2020, les fondatrices Nadiya et Ikram ont présenté leur produit lors de l’émission « Dragons’ Den ». Leur présentation a marqué l’histoire, car toutes les dragons ont été séduites par leur projet.</p>
-    <p>Sur BBC One, leur marque de produits naturels a reçu un accueil exceptionnel. Grâce à cette diffusion, Nadara Bio est devenue la marque de super-aliments végétaux la plus rapide à se développer au Royaume-Uni.</p>
-    <a href="#buy" class="btn btn-warning">Obtenez 49% de réduction maintenant</a>
+  <!-- Video Section -->
+  <section class="video-section" id="science">
+    <div class="container">
+      <h2>Découvrez notre histoire sur Dragons’ Den</h2>
+      <p>Comment deux sœurs ont révolutionné le monde du bien-être avec un produit naturel et puissant.</p>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Nadara sur Dragons' Den" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Offre exclusive : -49% aujourd’hui seulement</h2>
+      <p>Stock limité. Livraison gratuite en France. Satisfaction garantie ou remboursé.</p>
+      <a href="#buy" class="btn btn-primary">Je veux mon pot à -49%</a>
+    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Nadara Bio. Tous droits réservés.</p>
+    <p>&copy; 2025 Nadara. Tous droits réservés. Produit naturel, non médical. Résultats peuvent varier.</p>
   </footer>
 
   <!-- Scripts -->
   <script>
-    // Lazy load images
-    document.querySelectorAll('img.lazy').forEach(img => {
-      img.onload = () => img.classList.add('loaded');
+    // Animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
     });
 
-    // Smooth scroll for buttons
-    document.querySelectorAll('.btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = this.getAttribute('href');
-        if (target) {
-          document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
-        }
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
       });
     });
   </script>
+
 </body>
 </html>
